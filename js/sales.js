@@ -7,7 +7,7 @@ var pike = {
   avgSale: 6.3,
   getAvgCustHour: function(minCust, maxCust) {
     console.log();
-    return Math.floor(Math.random() * (maxCust - minCust + 1) + minCust); 
+    return Math.floor(Math.random() * (maxCust - minCust + 1) + minCust);
   },
   getAvgCookies: function(avgSale, getAvgCustHour) {
     return Math.floor(Math.round) * (avgSale * getAvgCustHour);
@@ -25,17 +25,24 @@ function showAvgCustHour() {
 
 showAvgCustHour();
 
-var PikeElement = document.getElementById('DailySalesProjection');
+function DailySalesProjection(){
+  var PikeElement = document.getElementById('DailySalesProjection');
+  var h2 = document.createElement('h2');
+  h2.textContent = 'First and Pike';
+  PikeElement.appendChild(h2);
+}
 
-var h2 = document.createElement('h2');
-h2.textContent = 'First and Pike';
-PikeElement.appendChild(h2);
+// var PikeElement = document.getElementById('DailySalesProjection');
 
-hoursArray[]
+// var h2 = document.createElement('h2');
+// h2.textContent = 'First and Pike';
+// PikeElement.appendChild(h2);
 
-// make lines 28 - 34 a function, figure out how to access the values of array in line 18
+// hoursArray[]
 
-//  <section id="DailySalesProjection"> 
+// make lines var PikeElement  --> hoursArray[] a function, figure out how to access the values of array in line 18
+
+//  <section id="DailySalesProjection">
 
 // var seaTac = {
 //   name: 'SeaTac',
