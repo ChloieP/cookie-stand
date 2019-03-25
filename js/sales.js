@@ -1,29 +1,30 @@
 'use strict';
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var hours = ['6am', '7am', '8am', ' 9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var firstPike = {
+  minHourlyCustomers: 23,
+  maxHourlyCustomers: 65,
+  avgCookiesPerSale: 6.3,
+  totalCookies: 0,
+  cookieArray: [],
+  randCustomersPerHour: function (){
+    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
 
-var pike = {
-  name: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgSale: 6.3,
-  getAvgCustHour: function(minCust, maxCust) {
-    console.log();
-    this.getAvgCustHour = Math.floor(Math.random() * (maxCust - minCust + 1) + minCust);
   },
-  getAvgCookiesHour: function() {
-    this.getAvgCookiesHour = Math.floor(Math.round) * (this.avgSale * this.getAvgCustHour);
+  cookiesPurchasedHourly: function () {
+    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
+
   },
   render: function(){
     for (var i = 0; i < hours.length; i++) {
-      this.getAvgCookiesHour();
-      this.getAvgCustHour();
+      this.cookieArray.push(this.randCustomersPerHour());
 
       var liEl = document.createElement('li');
-      liEl.textContent = hours[i] + pike.getAvgCookiesHour;
-      var h3 = document.createElement('firstPike');
-      document.getElementById('firstPike').appendChild(liEl);
-      h3.appendGrandchild(liEl);
+      var dailySalesProjections = liEl.textContent(this.hours[i] + this.cookieArray[i]);
+      liEl.appendChild(dailySalesProjections);
+
+      var currentLiEl = document.getElementById('firstPikeSales');
+      document.body.insertBefore(liEl, currentLiEl);
     }
   },
 };
