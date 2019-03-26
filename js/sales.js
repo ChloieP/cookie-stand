@@ -1,5 +1,5 @@
 'use strict';
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var firstPike = {
   minHourlyCustomers: 23,
@@ -17,22 +17,21 @@ var firstPike = {
     this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
 
   },
-  render: function(){
-    for (var i = 0; i < hours.length; i++) {
+  cookiesByTheTOD: function() {
+    for (var i = 0; i < this.hoursOpen.length; i++) {
       this.randCustomersPerHour();
       this.cookiesPurchasedHourly();
-      this.cookieArray.push(this.cookiesHourlyPurchased);
-
-      var parentElement = document.getElementById('firstPikeSales');
-      var newElement = document.createElement('li');
-      newElement.textcontent = hours[i] + ' ' + this.cookiesPurchasedHourly;
-      parentElement.appendChild(newElement);
-
-      // var currentLiEl = document.getElementById('firstPikeSales');
-      // document.body.appendChild(liEl, currentLiEl);
+      this.cookieArray.push(this.cookiesPurchasedHourly);
     }
   },
 };
+
+var render = function() {
+  var parentElementH3 = document.getElementById('firstPike');
+  var newElementuL = document.createElement('firstPikeSales');
+  parentElementH3.appendChild(newElementuL);
+};
+
 // var seaTac = {
 //   name: 'SeaTac Airport',
 //   minCust: 3,
