@@ -6,6 +6,8 @@ var firstPike = {
   maxHourlyCustomers: 65,
   avgCookiesPerSale: 6.3,
   totalCookies: 0,
+  estCustomersPerHour: 0,
+  cookiesHourlyPurchased:0,
   cookieArray: [],
   randCustomersPerHour: function (){
     this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
@@ -17,14 +19,17 @@ var firstPike = {
   },
   render: function(){
     for (var i = 0; i < hours.length; i++) {
-      this.cookieArray.push(this.randCustomersPerHour());
+      this.randCustomersPerHour();
+      this.cookiesPurchasedHourly();
+      this.cookieArray.push(this.cookiesHourlyPurchased);
 
-      var liEl = document.createElement('li');
-      var dailySalesProjections = liEl.textContent(this.hours[i] + this.cookieArray[i]);
-      liEl.appendChild(dailySalesProjections);
+      var parentElement = document.getElementById('firstPikeSales');
+      var newElement = document.createElement('li');
+      newElement.textcontent = hours[i] + ' ' + this.cookiesPurchasedHourly;
+      parentElement.appendChild(newElement);
 
-      var currentLiEl = document.getElementById('firstPikeSales');
-      document.body.insertBefore(liEl, currentLiEl);
+      // var currentLiEl = document.getElementById('firstPikeSales');
+      // document.body.appendChild(liEl, currentLiEl);
     }
   },
 };
