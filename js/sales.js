@@ -28,7 +28,7 @@ var firstPike = {
       totalCookies = this.cookiesPurchasedHourly + totalCookies;
       if (i===hoursOpen.length - 1){
         liEl = document.createElement('li');
-        liEl.textContent = 'Total: ' + totalCookies + ' cookies';
+        liEl.textContent = `Total: ${totalCookies} cookies`;
         firstPikeuL.appendChild(liEl);
       }
     }
@@ -66,7 +66,7 @@ var seaTac = {
       totalCookies = this.cookiesPurchasedHourly + totalCookies;
       if (i===hoursOpen.length - 1){
         liEl = document.createElement('li');
-        liEl.textContent = 'Total: ' + totalCookies + ' cookies';
+        liEl.textContent = `Total: ${totalCookies} cookies`;
         seaTacuL.appendChild(liEl);
       }
     }
@@ -104,7 +104,7 @@ var seaCenter = {
       totalCookies = this.cookiesPurchasedHourly + totalCookies;
       if (i===hoursOpen.length - 1){
         liEl = document.createElement('li');
-        liEl.textContent = 'Total: ' + totalCookies + ' cookies';
+        liEl.textContent = `Total: ${totalCookies} cookies`;
         seaCenteruL.appendChild(liEl);
       }
     }
@@ -142,7 +142,7 @@ var capitolHill = {
       totalCookies = this.cookiesPurchasedHourly + totalCookies;
       if (i===hoursOpen.length - 1){
         liEl = document.createElement('li');
-        liEl.textContent = 'Total: ' + totalCookies + ' cookies';
+        liEl.textContent = `Total: ${totalCookies} cookies`;
         capitolHilluL.appendChild(liEl);
       }
     }
@@ -180,7 +180,7 @@ var alki = {
       totalCookies = this.cookiesPurchasedHourly + totalCookies;
       if (i===hoursOpen.length - 1){
         liEl = document.createElement('li');
-        liEl.textContent = 'Total: ' + totalCookies + ' cookies';
+        liEl.textContent = `Total: ${totalCookies} cookies`;
         alkiuL.appendChild(liEl);
       }
     }
