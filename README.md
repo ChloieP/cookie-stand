@@ -1,2 +1,2 @@
 # cookie-stand
-Lab 6 Day 1
+Week 2, Monday
