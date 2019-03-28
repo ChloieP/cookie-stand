@@ -1,10 +1,28 @@
 'use strict';
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 var totalCookies = 0;
-var firstPike = {
-  minHourlyCustomers: 23,
-  maxHourlyCustomers: 65,
-  avgCookiesPerSale: 6.3,
+
+class Store_Data {
+  constructor(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
+    this.store = storeName;
+    this.minHourlyCustomers = minHourlyCustomers;
+    this.maxHourlyCustomers = maxHourlyCustomers;
+    this.avgCookiesPerSale = avgCookiesPerSale;
+  }
+};
+
+var firstPike = new Store_Data('First & Pike', 23, 65, 6.3);
+var seaTac = new Store_Data('SeaTac Airport', 3, 24, 1.2);
+var seaCenter = new Store_Data('Seattle Center', 11, 38, 3.7);
+var capitolHill = new Store_Data('Capitol Hill', 20, 38, 2.3);
+var alki = new Store_Data('Alki', 2, 16, 4.6);
+ 
+
+// var firstPike = {
+//   minHourlyCustomers: 23,
+//   maxHourlyCustomers: 65,
+//   avgCookiesPerSale: 6.3,
   randCustomersPerHour: 0,
   cookiesPurchasedHourly:0,
   cookieArray: [],
@@ -39,10 +57,10 @@ firstPike.getCookiesPurchasedHourly();
 firstPike.getRandCustomersPerHour();
 firstPike.render();
 
-var seaTac = {
-  minHourlyCustomers: 3,
-  maxHourlyCustomers: 24,
-  avgCookiesPerSale: 1.2,
+// var seaTac = {
+//   minHourlyCustomers: 3,
+//   maxHourlyCustomers: 24,
+//   avgCookiesPerSale: 1.2,
   randCustomersPerHour: 0,
   cookiesPurchasedHourly:0,
   cookieArray: [],
@@ -77,10 +95,10 @@ seaTac.getCookiesPurchasedHourly();
 seaTac.getRandCustomersPerHour();
 seaTac.render();
 
-var seaCenter = {
-  minHourlyCustomers: 11,
-  maxHourlyCustomers: 38,
-  avgCookiesPerSale: 3.7,
+// var seaCenter = {
+//   minHourlyCustomers: 11,
+//   maxHourlyCustomers: 38,
+//   avgCookiesPerSale: 3.7,
   randCustomersPerHour: 0,
   cookiesPurchasedHourly:0,
   cookieArray: [],
@@ -115,10 +133,10 @@ seaCenter.getCookiesPurchasedHourly();
 seaCenter.getRandCustomersPerHour();
 seaCenter.render();
 
-var capitolHill = {
-  minHourlyCustomers: 20,
-  maxHourlyCustomers: 38,
-  avgCookiesPerSale: 2.3,
+// var capitolHill = {
+//   minHourlyCustomers: 20,
+//   maxHourlyCustomers: 38,
+//   avgCookiesPerSale: 2.3,
   randCustomersPerHour: 0,
   cookiesPurchasedHourly:0,
   cookieArray: [],
@@ -153,10 +171,10 @@ capitolHill.getCookiesPurchasedHourly();
 capitolHill.getRandCustomersPerHour();
 capitolHill.render();
 
-var alki = {
-  minHourlyCustomers: 2,
-  maxHourlyCustomers: 16,
-  avgCookiesPerSale: 4.6,
+// var alki = {
+//   minHourlyCustomers: 2,
+//   maxHourlyCustomers: 16,
+//   avgCookiesPerSale: 4.6,
   randCustomersPerHour: 0,
   cookiesPurchasedHourly:0,
   cookieArray: [],
