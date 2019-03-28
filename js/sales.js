@@ -1,15 +1,26 @@
 'use strict';
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var totalCookies = 0;
-
-class Store_Data {
-  constructor(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
+var Store_Data = function(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
     this.store = storeName;
     this.minHourlyCustomers = minHourlyCustomers;
     this.maxHourlyCustomers = maxHourlyCustomers;
     this.avgCookiesPerSale = avgCookiesPerSale;
-  }
+    this.randCustomersPerHour = 0;
+    this.cookiesPurchasedHourly = 0;
+    this.cookieArray = [];
+    this.totalCookies = 0;
+  
+};
+
+Store_Data.prototype.getRandCustomersPerHour = function () {
+  this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
+
+},
+
+Store_Data.prototype.getCookiesPurchasedHourly = function () {
+  this.cookiesPurchasedHourly = Math.ceil(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
+
 };
 
 var firstPike = new Store_Data('First & Pike', 23, 65, 6.3);
@@ -20,20 +31,6 @@ var alki = new Store_Data('Alki', 2, 16, 4.6);
  
 
 // var firstPike = {
-//   minHourlyCustomers: 23,
-//   maxHourlyCustomers: 65,
-//   avgCookiesPerSale: 6.3,
-  randCustomersPerHour: 0,
-  cookiesPurchasedHourly:0,
-  cookieArray: [],
-  getRandCustomersPerHour: function () {
-    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
-
-  },
-  getCookiesPurchasedHourly: function () {
-    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-
-  },
   render: function() {
     for (var i = 0; i < hoursOpen.length; i++) {
       this.getRandCustomersPerHour();
@@ -58,20 +55,6 @@ firstPike.getRandCustomersPerHour();
 firstPike.render();
 
 // var seaTac = {
-//   minHourlyCustomers: 3,
-//   maxHourlyCustomers: 24,
-//   avgCookiesPerSale: 1.2,
-  randCustomersPerHour: 0,
-  cookiesPurchasedHourly:0,
-  cookieArray: [],
-  getRandCustomersPerHour: function () {
-    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
-
-  },
-  getCookiesPurchasedHourly: function () {
-    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-
-  },
   render: function() {
     for (var i = 0; i < hoursOpen.length; i++) {
       this.getRandCustomersPerHour();
@@ -96,20 +79,7 @@ seaTac.getRandCustomersPerHour();
 seaTac.render();
 
 // var seaCenter = {
-//   minHourlyCustomers: 11,
-//   maxHourlyCustomers: 38,
-//   avgCookiesPerSale: 3.7,
-  randCustomersPerHour: 0,
-  cookiesPurchasedHourly:0,
-  cookieArray: [],
-  getRandCustomersPerHour: function () {
-    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
 
-  },
-  getCookiesPurchasedHourly: function () {
-    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-
-  },
   render: function() {
     for (var i = 0; i < hoursOpen.length; i++) {
       this.getRandCustomersPerHour();
@@ -134,20 +104,6 @@ seaCenter.getRandCustomersPerHour();
 seaCenter.render();
 
 // var capitolHill = {
-//   minHourlyCustomers: 20,
-//   maxHourlyCustomers: 38,
-//   avgCookiesPerSale: 2.3,
-  randCustomersPerHour: 0,
-  cookiesPurchasedHourly:0,
-  cookieArray: [],
-  getRandCustomersPerHour: function () {
-    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
-
-  },
-  getCookiesPurchasedHourly: function () {
-    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-
-  },
   render: function() {
     for (var i = 0; i < hoursOpen.length; i++) {
       this.getRandCustomersPerHour();
@@ -172,20 +128,6 @@ capitolHill.getRandCustomersPerHour();
 capitolHill.render();
 
 // var alki = {
-//   minHourlyCustomers: 2,
-//   maxHourlyCustomers: 16,
-//   avgCookiesPerSale: 4.6,
-  randCustomersPerHour: 0,
-  cookiesPurchasedHourly:0,
-  cookieArray: [],
-  getRandCustomersPerHour: function () {
-    this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
-
-  },
-  getCookiesPurchasedHourly: function () {
-    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-
-  },
   render: function() {
     for (var i = 0; i < hoursOpen.length; i++) {
       this.getRandCustomersPerHour();
