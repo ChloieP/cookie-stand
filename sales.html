@@ -33,23 +33,21 @@
         <img src="img/Shops_Header.jpg" alt="Pat's five shops as of 2019." /></div>
     
     <table>
-        <thead>
-            <tr>
-             <th></th>
-             <th><hoursOpen class="length"></th>
+        <thead id="Hours_Open">
+            <tr id="Hours_List">
+                <th></th>
+                
+            </tr>
+            <tr id="Store_List">
+                <td id="Stores"></td>
+                <td id="Cookies_Purchased_Hourly"></td>
             </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th>StoreName</th>
-                <td><cookiesPurchasedHourly by store (row)></td>
-        </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td> Hourly Total of All Stores by hour (row) </td>
-            </tr>
+        <tfoot id="Hourly_Total">
+            <tr id="All_Stores"></tr>
+            <td>Happy monkey</td>
         </tfoot>
     </table>
-    </body>
+    <script src="./js/sales.js"></script>
+</body>
+</html>
