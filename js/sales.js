@@ -1,18 +1,21 @@
 'use strict';
+var stores = [];
+
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var Store_Data = function(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
+function Store_Data(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
   this.store = storeName;
+  stores.push(this.store);
   this.minHourlyCustomers = minHourlyCustomers;
   this.maxHourlyCustomers = maxHourlyCustomers;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.randCustomersPerHour = 0;
   this.cookiesPurchasedHourly = 0;
-  this.cookieArray = [];
+  this.cookiesHourlyArray = [];
   this.totalCookies = 0;
-  this.columnHourlyTotal = 0;
+}
 
-};
+console.log(stores);
 
 Store_Data.prototype.getRandCustomersPerHour = function () {
   this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
@@ -22,18 +25,10 @@ Store_Data.prototype.getRandCustomersPerHour = function () {
 Store_Data.prototype.getCookiesPurchasedHourly = function () {
   for (var i = 0; i < hoursOpen.length; i++) {
     this.cookiesPurchasedHourly = Math.ceil(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
-    this.cookieArray.push(this.cookiesPurchasedHourly);
+    this.cookiesHourlyArray.push(this.cookiesPurchasedHourly);
     this.totalCookies += this.cookiesPurchasedHourly;
   }
-
   // console.log(this); WORKS - gives me all the stores and their data here - put into table
-};
-
-Store_Data.prototype.getColumnHourlyTotal = function () {
-  this.columnHourlyTotal = this.sumHourlySalesArray.map(function (a, b) {
-    return a + b;
-  }, 0);
-
 };
 
 Store_Data.prototype.render = function () {
@@ -45,9 +40,9 @@ Store_Data.prototype.render = function () {
   storesDataTh.textContent = this.store;
   storesDataTr.appendChild(storesDataTh);
 
-  for (var i = 0; i < this.cookieArray.length; i++) {
+  for (var i = 0; i < this.cookiesHourlyArray.length; i++) {
     var storesCookieSales = document.createElement('td');
-    storesCookieSales.textContent = this.cookieArray[i];
+    storesCookieSales.textContent = this.cookiesHourlyArray[i];
     storesDataTr.appendChild(storesCookieSales);
   }
 
@@ -78,21 +73,30 @@ hoursTr.appendChild(tHead);
 // console.log(this); WORKS
 
 // FOOTER: Totals
+
 var tFoot = document.getElementById('Hourly_Total');
 var FootTr = document.createElement('tr');
 tFoot.appendChild(FootTr);
 
-// for (var j = 0; j < this.sumHourlySalesArray.length; j++) {
-//   var columnCookieSales = document.createElement('td');
-//   columnCookieSales.textContent = this.sumHourlySalesArray[j];
-//   FootTr.appendChild(columnCookieSales);
-// }
-// console.log(this);
+// eslint-disable-next-line no-redeclare
+for (var i = 0; i < hoursOpen.length; i++) {
+
+  var hourlyTotal = 0;
+
+  for (var j = 0; j < stores.length; j++); {
+    // hourlyTotal += stores[j].cookiesHourlyArray[i];
+  }
+}
+console.log();
+
 
 var FootTh = document.createElement('th');
 FootTh.textContent = 'Totals';
 FootTr.appendChild(FootTh);
 
+var FootTd = document.createElement('td');
+FootTd.textContent = hourlyTotal;
+FootTr.appendChild(FootTd);
 
 var firstPike = new Store_Data('First & Pike', 23, 65, 6.3);
 var seaTac = new Store_Data('SeaTac Airport', 3, 24, 1.2);
