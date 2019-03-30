@@ -1,6 +1,6 @@
 'use strict';
-
 var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+// var allStores = [];
 
 var Store_Data = function(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
   this.store = storeName;
@@ -26,7 +26,9 @@ Store_Data.prototype.getCookiesPurchasedHourly = function () {
     this.totalCookies += this.cookiesPurchasedHourly;
   }
   console.log(this);
+  // console.log(this); WORKS - gives me all the stores and their data here - put into table
 };
+
 
 Store_Data.prototype.render = function () {
   var storesData = document.getElementById('tableBody');
@@ -42,10 +44,10 @@ Store_Data.prototype.render = function () {
     storesCookieSales.textContent = this.cookieArray[i];
     storesDataTr.appendChild(storesCookieSales);
   }
-
   var storesTotals = document.createElement('td');
   storesTotals.textContent = this.totalCookies;
   storesDataTr.appendChild(storesTotals);
+}; // console.log(this); WORKS - added all stores and data to the table
 
 // HEADER: Hours
 var hoursThead = document.getElementById('Hours_Open');
@@ -55,21 +57,24 @@ var thElH = document.createElement('th');
 hoursTr.appendChild(thElH);
 
 for (var i = 0; i < hoursOpen.length; i++) {
-  var thElH = document.createElement('th');
-  thElH.textContent = hoursOpen[i];
-  hoursTr.appendChild(thElH);
+  var hoursOpenTh = document.createElement('th');
+  hoursOpenTh.textContent = hoursOpen[i];
+  hoursTr.appendChild(hoursOpenTh);
 }
 var tHead = document.createElement('th');
 tHead.textContent = 'Totals';
 hoursTr.appendChild(tHead);
 
+
+// console.log(this.name); WORKS - add all hours to table
+
 // FOOTER: Totals
 Store_Data.prototype.totalCookies = function() {
-  for (var i = 0; i < hoursOpen.length; i++) {
-  //   var sum = this.cookieArray.reduce((a, b) => a + b);
-  //   this.totalCookies.push(sum);
-  // var tFoot = document.getElementById('Hourly_Total');
-  // var trFoot = document.createElement('tr');
+//   for (var i = 0; i < hoursOpen.length; i++) {
+//     var sum = this.cookieArray.reduce((a, b) => a + b);
+//     this.totalCookies.push(sum);
+  var tFoot = document.getElementById('Hourly_Total');
+  var trFoot = document.createElement('tr');
   trFoot.textContent = this.totalCookies;
   tFoot.appendChild(trFoot);
   // console.log(firstPike);
@@ -102,3 +107,5 @@ capitolHill.render();
 alki.getRandCustomersPerHour();
 alki.getCookiesPurchasedHourly();
 alki.render();
+
+
