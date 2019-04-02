@@ -5,7 +5,7 @@ var hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm
 
 function Store_Data(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerSale) {
   this.store = storeName;
-  stores.push(this.store);
+  stores.push(this);
   this.minHourlyCustomers = minHourlyCustomers;
   this.maxHourlyCustomers = maxHourlyCustomers;
   this.avgCookiesPerSale = avgCookiesPerSale;
@@ -15,10 +15,8 @@ function Store_Data(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookie
   this.totalCookies = 0;
 }
 
-console.log(stores);
-
 Store_Data.prototype.getRandCustomersPerHour = function () {
-  this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers +1) + this.minHourlyCustomers);
+  this.randCustomersPerHour = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers) + this.minHourlyCustomers);
 
 };
 
@@ -74,21 +72,16 @@ hoursTr.appendChild(tHead);
 
 // FOOTER: Totals
 
-var tFoot = document.getElementById('Hourly_Total');
-var FootTr = document.createElement('tr');
-tFoot.appendChild(FootTr);
-
-// eslint-disable-next-line no-redeclare
 for (var i = 0; i < hoursOpen.length; i++) {
-
   var hourlyTotal = 0;
-
   for (var j = 0; j < stores.length; j++); {
     // hourlyTotal += stores[j].cookiesHourlyArray[i];
   }
 }
-console.log();
-
+// console.log(stores);
+var tFoot = document.getElementById('Hourly_Total');
+var FootTr = document.createElement('tr');
+tFoot.appendChild(FootTr);
 
 var FootTh = document.createElement('th');
 FootTh.textContent = 'Totals';
