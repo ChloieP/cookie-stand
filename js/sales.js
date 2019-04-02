@@ -28,7 +28,7 @@ Store_Data.prototype.getRandCustomersPerHour = function () {
 
 Store_Data.prototype.getCookiesPurchasedHourly = function () {
   for (var i = 0; i < hoursOpen.length; i++) {
-    this.cookiesPurchasedHourly = Math.ceil((this.avgCookiesPerSale * this.randCustomersPerHour));
+    this.cookiesPurchasedHourly = Math.floor(Math.random() * (this.avgCookiesPerSale * this.randCustomersPerHour));
     this.cookiesHourlyArray.push(this.cookiesPurchasedHourly);
     this.totalCookies += this.cookiesPurchasedHourly;
   }
@@ -79,26 +79,8 @@ hoursTr.appendChild(tHead);
 
 // FOOTER: Totals
 
-// for (var i = 0; i < hoursOpen.length; i++) {
-//   var hourlyTotal = 0;
-//   for (var j = 0; j < stores.length; j++); {
-//     hourlyTotal += stores[j].cookiesHourlyArray[i];
-//     console.log(stores);
-// console.log('hi munchkin');
-//   }
-// }
 // console.log(stores);
-var tFoot = document.getElementById('Hourly_Total');
-var FootTr = document.createElement('tr');
-tFoot.appendChild(FootTr);
 
-var FootTh = document.createElement('th');
-FootTh.textContent = 'Totals';
-FootTr.appendChild(FootTh);
-
-var FootTd = document.createElement('td');
-// FootTd.textContent = hourlyTotal;
-FootTr.appendChild(FootTd);
 
 var firstPike = new Store_Data('First & Pike', 23, 65, 6.3); // I am creating a store called First & Pike and as part of that I am also telling it to put itself in an array: stores
 var seaTac = new Store_Data('SeaTac Airport', 3, 24, 1.2);
@@ -111,26 +93,31 @@ var alki = new Store_Data('Alki', 2, 16, 4.6);
 // console.log(stores[0].randCustomersPerHour);
 
 
+// For every store, I want to call these three functions: getRandCustomersPerHour, getCookiesPurchasedHourly; render.
+
 for (var z = 0; z < stores.length; z++) {
-  stores.getRandCustomersPerHour();
-  stores.getCookiesPurchasedHourly();
-  stores.render();
+  stores[z].getRandCustomersPerHour();
+  stores[z].getCookiesPurchasedHourly();
+  stores[z].render();
+  // console.log(stores[0].render);
+
 }
 
-console.log(stores.getRandCustomersPerHour);
+// for (var i = 0; i < hoursOpen.length; i++) {
+var hourlyTotal = 0;
+//   for (var j = 0; j < stores.length; j++); {
+//     hourlyTotal += stores[j].getCookiesPurchasedHourly;
+// console.log(stores);
+//   }
+// }
+var tFoot = document.getElementById('Hourly_Total');
+var FootTr = document.createElement('tr');
+tFoot.appendChild(FootTr);
 
-// seaTac.getRandCustomersPerHour();
-// seaTac.getCookiesPurchasedHourly();
-// seaTac.render();
+var FootTh = document.createElement('th');
+FootTh.textContent = 'Totals';
+FootTr.appendChild(FootTh);
 
-// seaCenter.getRandCustomersPerHour();
-// seaCenter.getCookiesPurchasedHourly();
-// seaCenter.render();
-
-// capitolHill.getRandCustomersPerHour();
-// capitolHill.getCookiesPurchasedHourly();
-// capitolHill.render();
-
-// alki.getRandCustomersPerHour();
-// alki.getCookiesPurchasedHourly();
-// alki.render();
+var FootTd = document.createElement('td');
+FootTd.textContent = hourlyTotal;
+FootTr.appendChild(FootTd);
