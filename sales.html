@@ -30,18 +30,31 @@
     <h2>Daily Sales Projections By Location</h2>
 
     <div id="Shops_Header">
-        <img src="img/Shops_Header.jpg" alt="Pat's five shops as of 2019." /></div>
+        <img src="img/Shops_HeaderA.jpg" alt="Pat's five shops as of 2019." />
+    </div>
     
     <table>
-        <thead id="Hours_Open">  
-        </thead>
-        
-        <tbody id="tableBody">             
-        </tbody>    
-        
-        <tfoot id="Hourly_Total">
-        </tfoot>
+        <thead id="Hours_Open"></thead>
+        <tbody id="tableBody"></tbody>    
+        <tfoot id="Hourly_Total"></tfoot>
     </table>
+
+    <section id="Below_Table">
+        <form id="Store_Input">
+            <fieldset>
+                <legend>Store Data</legend>
+                <label>Store Name</label>
+                <input name="name" type="text" required value="Old Mill">
+                <label>Minimum Customers</label>
+                <input name="minimum" type="number" required value="1">
+                <label>Maximum Customers</label>
+                <input name="maximum" type="number" required value="10">
+                <label>Average Cookies Sold</label>
+                <input name="average" type="number" required value="3">
+            </fieldset>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </section>
     <script src="./js/sales.js"></script>
 </body>
 </html>
