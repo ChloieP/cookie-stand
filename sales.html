@@ -7,51 +7,54 @@
     <title>Pat's Salmon Cookies</title>
    
 
-<body>
-    <h1 align="Center">Pat's Salmon Cookies</h1>
-    <div class="container">
-        <img src="img/salmon.png" alt="Salmon" style="width:100%;">
-        <div class="centered"></div>
-    </div>
+    <body>
+        <h1>Pat's Salmon Cookies</h1>
+            <div class="container">
+                <img src="img/salmon.png" alt="Salmon" style="width:100%;">
+                <div class="centered"></div>
+            </div>
+    
+            <nav>
+                <a href="sales.html">Sales Projections</a>
+                <a href="Human Treats">Human Treats</a>
+                <a href="Dog Treats">Dog Treats</a>
+                <a href="Locations">Locations</a>
+                <a href="About Us">About Us</a>
+                <a href="FAQ">FAQ</a>
+                <a href="Order Online">Order</a>
+            </nav>
+    
+            <p>Seattle, Washington is notorious for its coffee and its four-legged friend inclusivity. Here at Pat's Salmon Cookies, we believe that cookies should be inclusive too!</p>
+            <hr />
 
     <h2>Daily Sales Projections By Location</h2>
 
-    <div id="firstPikePhoto">
-        <img src="img/Pike-Place.png" alt="Pike Place Market on a sunny Seattle day." /></div>
+    <div id="Shops_Header">
+        <img src="img/Shops_HeaderA.jpg" alt="Pat's five shops as of 2019." />
+    </div>
     
-        <h3 id="firstPike">1st and Pike</h3>
-        
-        <ul id="firstPikeSales"></ul>
-                
-    <div id="SeaTac">
-        <img src="img/SeaTac.png" alt="SeaTac International Aiport has an excellent reputation." /></div>
-            
-        <h3 id="seaTac">SeaTac Airport</h3>
-        
-        <ul id="seaTacSales"></ul>
-                
-     <div id="SeaCenter">
-        <img src="img/Seattle-Center.png" alt="Seattle Center is the area for food lovers." /></div>    
-        
-        <h3 id="seaCenter">Seattle Center</h3>
+    <table>
+        <thead id="Hours_Open"></thead>
+        <tbody id="tableBody"></tbody>    
+        <tfoot id="Hourly_Total"></tfoot>
+    </table>
 
-        <ul id="seaCenterSales"></ul>
-
-     <div id="capitolHill">
-        <img src="img/Capitol-Hill.png" alt="Capitol Hill in Seattle is the area for food lovers." /></div>              
-           
-        <h3 id="capitolHill">Capitol Hill</h3>
-             
-        <ul id="capitolHillSales"></ul>
-
-    <div id="Alki">
-        <img src="img/Alki.png" alt="Alki is one of the safest neighborhoods." /></div>    
-            
-        <h3 id="alki">Alki</h3>
-                
-        <ul id="alkiSales"></ul>
-
-        <script src="./js/sales.js"></script> 
+    <section id="Below_Table">
+        <form id="Store_Input">
+            <fieldset>
+                <legend>Store Data</legend>
+                <label>Store Name</label>
+                <input name="name" type="text" required value="Old Mill">
+                <label>Minimum Customers</label>
+                <input name="minimum" type="number" required value="1">
+                <label>Maximum Customers</label>
+                <input name="maximum" type="number" required value="10">
+                <label>Average Cookies Sold</label>
+                <input name="average" type="number" required value="3">
+            </fieldset>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </section>
+    <script src="./js/sales.js"></script>
 </body>
 </html>
-
